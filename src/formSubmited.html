@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Alex Munoz</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
+
+	<style media="screen">
+		body{
+			font-family: 'Raleway', sans-serif;
+		}
+	</style>
+
+</head>
+<body>
+  <div id="name">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/home">Alex Munoz</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/AlexMunoz905">My GitHub</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Built-On
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="https://www.w3schools.com/html/html5_intro.asp" target="_blank">HTML5</a>
+					<div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Bootstrap 4</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="https://jquery.com/" target="_blank">JQuery</a>
+					<div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="https://fonts.google.com/specimen/Raleway" target="_blank">Raleway Font</a>
+        </div>
+				<li class="nav-item">
+					<a class="nav-link" href="/contact">Contact Me</a>
+				</li>
+    </ul>
+  </div>
+</nav>
+
+<br>
+<br>
+<div class="container">
+  <h3>Message sent. Redirecting home in <span class="count">3</span> seconds.</h3>
+</div>
+
+  <script type="text/javascript">
+    window.onload = function(){
+
+(function(){
+  var counter = 5;
+
+  setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      span = document.getElementById("count");
+      span.innerHTML = counter;
+    }
+    // Display 'counter' wherever you want to display it.
+    if (counter === 0) {
+      window.location.href = '/home';
+    }
+
+  }, 1000);
+
+})();
+
+}
+  </script>
+
+<!-- ends the name id -->
+</div>
+</body>
+</html>
