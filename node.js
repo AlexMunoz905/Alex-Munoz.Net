@@ -1,17 +1,16 @@
 // Contact Form
 const express = require('express');
 const bodyParser = require('body-parser');
-
-// Zoho login info. Made so it's not on GitHub.
+const app = express();
+const nodemailer = require('nodemailer');
 const zoho = require('./GitIgnore/zohoInformation.js');
+var port = 8080;
 const zohoUsername = zoho.user;
 const zohoPassword = zoho.password;
-
-const app = express();
-const redirectURL = '192.168.168.208/index.html'
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017/mydb";
 app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (request, response) =>  response.sendFile(`${__dirname}/src/index.html`));
-var nodemailer = require('nodemailer');
 app.use(express.static('public'));
 app.use(express.static('src'));
 app.get('/home', (request, response) =>  response.sendFile(`${__dirname}/src/index.html`));
@@ -33,7 +32,7 @@ app.post('/api/form', function(req, res) {
       to: 'alex.munoz905@gmail.com', // list of receivers (who receives)
       subject: req.body.subject, // Subject line
       text: 'Alex-Munoz.Net ', // plaintext body
-      html: 'From: <b>' + req.body.name + "</b>,<b>" + req.body.email + "</b>.<br><br>" + req.body.message // htvml body
+      html: 'From: <b>' + req.body.name + "</b>,<b>" + req.body.email + "</b>.<br><br>" + req.body.message
   };
 
   // send mail with defined transport object
@@ -43,10 +42,21 @@ app.post('/api/form', function(req, res) {
       }
 
       console.log('Message sent: ' + info.response);
-      return res.redirect('/formSubmited')
+      MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("contactForm");
+        var myobj = { email: req.body.email, name: req.body.name, Subject: req.body.subject, Question: req.body.message };
+        dbo.collection("form").insertOne(myobj, function(err, res) {
+          if (err) throw err;
+          console.log("Added contact to the database.");
+          db.close();
+        });
+      });
+
+       return res.redirect('/dashboard');
 
 
   });
 });
 
-app.listen(3000, () => console.info('Application running on port 3000'));
+app.listen(port, () => console.info('Application running on port ' + port));
