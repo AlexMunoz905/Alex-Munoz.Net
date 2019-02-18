@@ -1,6 +1,12 @@
-// mailer
+// Contact Form
 const express = require('express');
 const bodyParser = require('body-parser');
+
+// Zoho login info. Made so it's not on GitHub.
+const zoho = require('./GitIgnore/zohoInformation.js');
+const zohoUsername = zoho.user;
+const zohoPassword = zoho.password;
+
 const app = express();
 const redirectURL = '192.168.168.208/index.html'
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,8 +22,8 @@ var transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // use SSL
     auth: {
-        user: 'noreply@napend.com',
-        pass: 'HtmlIsCool1234!!!!'
+        user: zohoUsername,
+        pass: zohoPassword
     }
 });
 
