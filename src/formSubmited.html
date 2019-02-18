@@ -8,14 +8,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="scripts/redirectDelay.js" charset="utf-8"></script>
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
-
-	<style media="screen">
-		body{
-			font-family: 'Raleway', sans-serif;
-		}
-	</style>
+  <link rel="stylesheet" href="style/main.css">
 
 </head>
 <body>
@@ -59,30 +55,6 @@
 <div class="container">
   <h3>Message sent. Redirecting home in <span class="count">3</span> seconds.</h3>
 </div>
-
-  <script type="text/javascript">
-    window.onload = function(){
-
-(function(){
-  var counter = 5;
-
-  setInterval(function() {
-    counter--;
-    if (counter >= 0) {
-      span = document.getElementById("count");
-      span.innerHTML = counter;
-    }
-    // Display 'counter' wherever you want to display it.
-    if (counter === 0) {
-      window.location.href = '/home';
-    }
-
-  }, 1000);
-
-})();
-
-}
-  </script>
 
 <!-- ends the name id -->
 </div>
