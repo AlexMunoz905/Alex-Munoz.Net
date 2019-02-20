@@ -1,16 +1,26 @@
 {
-  "name": "new-website",
+  "name": "alex-munoz.net",
   "version": "1.0.0",
-  "description": "My new personal website.",
-  "main": "index.js",
+  "description": "Personal Website built with NodeJS",
+  "main": "node.js",
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "nodemailer": "*",
+    "mongo": "*"
+  },
+  "devDependencies": {},
   "scripts": {
     "start": "node node.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexMunoz905/Alex-Munoz.Net.git"
+  },
+  "author": "Alex Munoz (Napend)",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "nodemailer": "^5.1.1"
-  }
+  "bugs": {
+    "url": "https://github.com/AlexMunoz905/Alex-Munoz.Net/issues"
+  },
+  "homepage": "https://github.com/AlexMunoz905/Alex-Munoz.Net#readme"
 }
