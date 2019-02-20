@@ -42,18 +42,7 @@ app.post('/api/form', function(req, res) {
       }
 
       console.log('Message sent: ' + info.response);
-      MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("contactForm");
-        var myobj = { email: req.body.email, name: req.body.name, Subject: req.body.subject, Question: req.body.message };
-        dbo.collection("form").insertOne(myobj, function(err, res) {
-          if (err) throw err;
-          console.log("Added contact to the database.");
-          db.close();
-        });
-      });
-
-       return res.redirect('/dashboard');
+       return res.redirect('/formSubmited');
 
 
   });
