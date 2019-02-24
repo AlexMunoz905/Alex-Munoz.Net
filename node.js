@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const nodemailer = require('nodemailer');
-// const zoho = require('./GitIgnore/zohoInformation.js');
+const zoho = require('./GitIgnore/zohoInformation.js');
 var port = 8080;
 const zohoUsername = zoho.user;
 const zohoPassword = zoho.password;
@@ -42,11 +42,8 @@ app.post('/api/form', function(req, res) {
       if(error){
           return console.log(error);
       }
-
       console.log('Message sent: ' + info.response);
        return res.redirect('/formSubmited');
-
-
   });
 });
 
