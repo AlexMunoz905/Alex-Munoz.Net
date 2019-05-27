@@ -2,6 +2,9 @@
 // Alex Munoz
 // GitHub.com/AlexMunoz905/Alex-Munoz.Net
 const express = require('express');
+const fs = require('fs');
+const https = require('https');
+const http = require('http');
 const bodyParser = require('body-parser');
 const app = express();
 const nodemailer = require('nodemailer');
@@ -47,4 +50,13 @@ app.post('/api/form', function(req, res) {
   });
 });
 
-app.listen(port, () => console.info('Application running on port ' + port));
+var httpsCerts = {
+	key: fs.readFileSync('./GitIgnore/key.pem'),
+	cert: fs.readFileSync('./GitIgnore/cert.pem')
+};
+
+https.createServer(httpsCerts, app).listen(443);
+http.createServer(app).listen(8080);
+console.log("Running the server...");
+
+//app.listen(port, () => console.info('Application running on port ' + port));
