@@ -20,6 +20,9 @@ app.use(express.static('public'));
 app.use(express.static('src'));
 app.get('/home', (request, response) =>  response.sendFile(`${__dirname}/src/index.html`));
 app.get('/contact', (request, response) =>  response.sendFile(`${__dirname}/src/contact.html`));
+app.use(function (req, res, next) {
+  res.status(404).sendFile(`${__dirname}/src/index.html`);
+});
 app.get('/formSubmited', (request, response) =>  response.sendFile(`${__dirname}/src/formSubmited.html`));
 var transporter = nodemailer.createTransport({
     host: 'smtp.zoho.com',
