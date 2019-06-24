@@ -6,6 +6,7 @@ const fs = require('fs');
 const https = require('https');
 const http = require('http');
 const bodyParser = require('body-parser');
+const publicIP = require('public-ip');
 const app = express();
 const nodemailer = require('nodemailer');
 const zoho = require('./GitIgnore/zohoInformation.js');
@@ -52,6 +53,15 @@ app.post('/api/form', function(req, res) {
        return res.redirect('/formSubmited');
   });
 });
+
+// print ipv4 & ipv6 ip addresses
+(async () => {
+	console.log(await publicIP.v4());
+	//=> '46.5.21.123'
+
+	console.log(await publicIP.v6());
+	//=> 'fe80::200:f8ff:fe21:67cf'
+})();
 
 var httpsCerts = {
 	key: fs.readFileSync('./GitIgnore/key.pem'),
