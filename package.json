@@ -1,0 +1,15 @@
+{
+  "name": "alex-munoz-net",
+  "version": "1.0.0",
+  "description": "Alexander's personal website!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexander Munoz",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "express": "^4.18.2"
+  }
+}
